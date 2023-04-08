@@ -35,6 +35,20 @@ const allLists = [
       'Redfish',
     ],
   },
+  {
+    title: 'Colors',
+    items: [
+      'red',
+      'orangge',
+      'blue',
+      'green',
+      'maroon',
+      'black',
+      'purple',
+      'yellow',
+      'brown',
+    ],
+  },
 ];
 
 const AllLists = () => {
@@ -48,10 +62,22 @@ const AllLists = () => {
     ));
   };
 
+  const renderListItems = (lists) => {
+    return lists.map((list, index) => (
+      <ul key={index}>
+        <h2>{list.title}</h2>
+        {list.items.map((item, itemIndex) => (
+          <li key={itemIndex}>{item}</li>
+        ))}
+      </ul>
+    ));
+  };
+
   return (
     <div>
       <h2>All Lists Page</h2>
       <ul>{renderLists(allLists)}</ul>
+      <div>{renderListItems(allLists)}</div>
     </div>
   );
 };
