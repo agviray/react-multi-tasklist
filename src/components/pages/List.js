@@ -7,9 +7,11 @@ const List = () => {
   return (
     <div>
       <h2>{selectedList.title}</h2>
-      {selectedList.items.map((item, index) => (
-        <li key={index}>{item}</li>
-      ))}
+      <ul>
+        {selectedList.items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 };
