@@ -3,20 +3,80 @@ import AllLists from './AllLists';
 import { StyledHome } from '../styles/Home.styled';
 import Message from '../Message';
 
+const initialAllLists = [
+  {
+    title: 'Numbers',
+    items: ['1', '56', '0', '99'],
+  },
+  {
+    title: 'Capital Letters',
+    items: ['X', 'F', 'S', 'N', 'P', 'A'],
+  },
+  {
+    title: 'Mammals',
+    items: [
+      'Blue Whale',
+      'Grizzly Bear',
+      'Wooly Mammoth',
+      'Wolverine',
+      'Bengal Tiger',
+      'Sea Otter',
+    ],
+  },
+  {
+    title: 'Sea Creatures',
+    items: [
+      'Octopus',
+      'Giant Squid',
+      'Starfish',
+      'Great White Shark',
+      'Blue Crab',
+      'Tiger Shark',
+      'Clownfish',
+      'Baracuda',
+      'Redfish',
+    ],
+  },
+  {
+    title: 'Colors',
+    items: [
+      'red',
+      'orangge',
+      'blue',
+      'green',
+      'maroon',
+      'black',
+      'purple',
+      'yellow',
+      'brown',
+    ],
+  },
+];
+
 const Home = () => {
+  // - allLists will eventually be a piece of state from the Redux store.
   const [allLists, setAllLists] = useState([]);
   const [messageText, setMessageText] = useState('');
 
   useEffect(() => {
+    // - storedLists are the lists that were stored in our 'database', aka localStorage.
     const storedLists = JSON.parse(
       localStorage.getItem('storedMultiTasklistState')
     );
 
+    // - If any stored lists exist, then we will call the action creator, setAllLists, to store all the lists as a piece of state (allLists) in the Redux store.
+    // - When allLists is stored as a piece of state in the Redux store, it will allow us to create, read, update, or delete a given list.
     if (storedLists) {
-      // - Use an action creator here to update Redux store, so that the Redux store will contain all 'saved' lists from the 'database'--which in this app, is localStorage.
-      setAllLists(storedLists);
+      // - setAllLists will eventually be an action creator.
+      // - The action creator will update the Redux store, so that the Redux store will contain all 'saved' lists from the 'database'--which in this app, is localStorage.
+      setAllLists(initialAllLists);
     }
   }, []);
+
+  useEffect(() => {
+    // - Any time a list is saved, our 'database'--aka localStorage--will be updated with the latest edits of all our lists.
+    localStorage.setItem('storedMultiTasklistState', JSON.stringify(allLists));
+  }, [allLists]);
 
   useEffect(() => {
     if (allLists.length === 0) {
@@ -42,7 +102,7 @@ const Home = () => {
           </span>
         </div>
       </div>
-      <AllLists />
+      {allLists.length === 0 ? null : <AllLists lists={allLists} />}
     </StyledHome>
   );
 };
