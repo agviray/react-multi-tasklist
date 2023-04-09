@@ -14,6 +14,10 @@ body {
   line-height: 1.6;
 }
 
+header {
+  height: 90.5px;
+}
+
 ul {
   margin: 0;
   padding: 0;

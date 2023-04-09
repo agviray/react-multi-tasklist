@@ -1,17 +1,22 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from './Header';
+import HeaderContent from './HeaderContent';
 import AllLists from './pages/AllLists';
 import GlobalStyles from './styles/GlobalStyles';
+import { StyledMainContent } from './styles/Layout.styled';
 
 const Layout = () => {
   return (
     <>
       <GlobalStyles />
-      <Header />
+      <header>
+        <HeaderContent />
+      </header>
       <main>
-        <AllLists />
-        <Outlet />
+        <StyledMainContent>
+          <AllLists />
+          <Outlet />
+        </StyledMainContent>
       </main>
       <footer></footer>
     </>

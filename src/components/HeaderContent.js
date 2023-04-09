@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { StyledHeader } from './styles/StyledHeader.styled';
+import { StyledHeaderContent } from './styles/HeaderContent.styled';
 
-const Header = () => {
+const HeaderContent = () => {
   const [scrollYPos, setScrollYPos] = useState(0);
   const [isTransitionApplied, setIsTransitionApplied] = useState(false);
   useEffect(() => {
@@ -34,10 +34,10 @@ const Header = () => {
   }, [scrollYPos]);
 
   return (
-    <StyledHeader isTransitionApplied={isTransitionApplied}>
+    <StyledHeaderContent isTransitionApplied={isTransitionApplied}>
       <h1>Multi-Tasklist</h1>
-    </StyledHeader>
+    </StyledHeaderContent>
   );
 };
 
-export default Header;
+export default HeaderContent;
