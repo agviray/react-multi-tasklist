@@ -1,6 +1,7 @@
 import React from 'react';
 import BackButton from './BackButton';
 import ListButton from './ListButton';
+import Ellipsis from './Ellipsis';
 import { StyledListHeaderContent } from './styles/ListPageHeaderContent.styled';
 
 const ListPageHeaderContent = () => {
@@ -8,7 +9,7 @@ const ListPageHeaderContent = () => {
     <StyledListHeaderContent>
       <BackButton />
       <ListButton />
-      <span>. . .</span>
+      <Ellipsis />
     </StyledListHeaderContent>
   );
 };

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledBackButton = styled.div`
+export const StyledBackButton = styled.span`
   position: relative;
   display: inline-block;
   padding: 1rem 0.75rem;
