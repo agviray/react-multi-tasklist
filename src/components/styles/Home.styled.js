@@ -1,20 +1,24 @@
 import styled from 'styled-components';
 
 export const StyledHome = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  & > div:nth-of-type(1) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  p {
-    text-align: center;
-    padding-bottom: 2rem;
-  }
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 2rem;
 
-  span {
-    display: inline-block;
-    text-align: center;
-    padding: 1rem;
-    background-color: lightgray;
+      span {
+        display: inline-block;
+        text-align: center;
+        padding: 1rem;
+        background-color: lightgray;
+      }
+    }
   }
 `;
