@@ -18,6 +18,7 @@ export const StyledHeaderContent = styled.div`
     right: 0;
     opacity: ${({ isTransitionApplied }) => (isTransitionApplied ? '1' : '0')};
     box-shadow: 0px 5px 9px 0px rgba(0, 0, 0, 0.16);
+    z-index: -1;
     transition: opacity 0.3s ease;
   }
 

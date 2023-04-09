@@ -1,10 +1,11 @@
 import React from 'react';
+import BackButton from './BackButton';
 import { StyledListHeaderContent } from './styles/ListPageHeaderContent.styled';
 
 const ListPageHeaderContent = () => {
   return (
     <StyledListHeaderContent>
-      <span>Back</span>
+      <BackButton />
       <span>Save</span>
       <span>. . .</span>
     </StyledListHeaderContent>
