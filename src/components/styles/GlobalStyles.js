@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: #333333
+  font-size: 16px;
   line-height: 1.6;
 }
 
