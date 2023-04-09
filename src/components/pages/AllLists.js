@@ -7,9 +7,9 @@ const AllLists = ({ lists }) => {
   return (
     <StyledAllLists>
       {lists.map((list, index) => (
-        <div key={index}>
+        <Link to={`/list/${list.title}`} state={list} key={index}>
           <ListCard list={list} />
-        </div>
+        </Link>
       ))}
     </StyledAllLists>
   );

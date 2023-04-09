@@ -51,6 +51,21 @@ const initialAllLists = [
       'brown',
     ],
   },
+  {
+    title: 'list of lists',
+    items: [
+      'sea creatures list',
+      'dinosaurs list',
+      'natural elements list',
+      'college subjects list',
+      'Letter A Names List',
+      'car models list',
+      'Anime Shows List',
+      'Horror Movies list',
+      'Computer Parts List',
+      'Suspense/Thriller Movies List',
+    ],
+  },
 ];
 
 const Home = () => {

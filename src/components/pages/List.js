@@ -3,12 +3,13 @@ import { useLocation } from 'react-router-dom';
 
 const List = () => {
   const location = useLocation();
-  const { selectedList } = location.state;
+  const { title, items } = location.state;
+
   return (
     <div>
-      <h2>{selectedList.title}</h2>
+      <h2>{title}</h2>
       <ul>
-        {selectedList.items.map((item, index) => (
+        {items.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
       </ul>
