@@ -1,5 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import ListTitle from '../ListTitle';
+import ListItems from '../ListItems';
 
 const List = () => {
   const location = useLocation();
@@ -7,12 +9,8 @@ const List = () => {
 
   return (
     <div>
-      <h2>{title}</h2>
-      <ul>
-        {items.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
+      <ListTitle title={title} />
+      <ListItems items={items} />
     </div>
   );
 };
