@@ -7,7 +7,6 @@ const HeaderContent = () => {
   const [scrollYPos, setScrollYPos] = useState(0);
   const [isTransitionApplied, setIsTransitionApplied] = useState(false);
   const location = useLocation();
-  console.log(location);
 
   useEffect(() => {
     const handleVerticalScroll = () => {
