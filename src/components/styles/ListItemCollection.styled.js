@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const StyledListItems = styled.ul`
+export const StyledListItemCollection = styled.ul`
   position: relative;
 `;
