@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { StyledListItemAdder } from './styles/ListItemAdder.styled';
 
-const ListItemAdder = () => {
-  const defaultText = 'Enter a task';
+const defaultText = 'Enter a task';
+
+const ListItemAdder = ({ onNewTaskChange }) => {
   const [text, setText] = useState(defaultText);
 
   const handleChange = (e) => {
@@ -32,8 +33,7 @@ const ListItemAdder = () => {
     if (taskToAdd === '' || taskToAdd === defaultText) {
       return;
     }
-    // - Added task will be displayed in list.
-    console.log(taskToAdd);
+    onNewTaskChange(taskToAdd);
     setText(defaultText);
   };
 

@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyledListTitle, StyledTitleEditor } from './styles/ListTitle.styled';
 import EditIcon from './icons/EditIcon';
 
-const ListTitle = ({ title }) => {
+const defaultTitle = 'Click here to enter a title';
+
+const ListTitle = ({ title, onTitleChange }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [currentTitle, setCurrentTitle] = useState(title);
+  const [currentTitle, setCurrentTitle] = useState(defaultTitle);
+
+  useEffect(() => {
+    if (title !== '') {
+      setCurrentTitle(title);
+    }
+  }, [title]);
 
   const editTitle = () => {
     return isEditing ? null : setIsEditing(true);
@@ -14,18 +22,32 @@ const ListTitle = ({ title }) => {
     setCurrentTitle(e.target.value);
   };
 
-  const handleTitleInputBlur = () => {
+  const handleTitleInputBlur = (e) => {
+    if (e.target.value === '') {
+      setCurrentTitle(defaultTitle);
+      // - This will also trigger a modal to display, telling user that the title
+      //   cannot be left blank.
+    } else if (e.target.value !== '') {
+      setCurrentTitle(e.target.value);
+      addNewTitle(e.target.value);
+    }
     setIsEditing(false);
   };
 
+  const addNewTitle = (titleToAdd) => {
+    onTitleChange(titleToAdd);
+  };
+
   return (
-    <StyledListTitle>
+    <StyledListTitle
+      isDefaultTitle={currentTitle === defaultTitle ? true : false}
+    >
       {isEditing ? (
         <StyledTitleEditor
           type="text"
           value={currentTitle}
           onChange={(e) => handleTitleChange(e)}
-          onBlur={handleTitleInputBlur}
+          onBlur={(e) => handleTitleInputBlur(e)}
           onFocus={(e) => e.target.select()}
           autoFocus
         />
