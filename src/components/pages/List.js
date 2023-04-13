@@ -20,12 +20,6 @@ const List = () => {
   }, []);
 
   useEffect(() => {
-    if (title === '') {
-      return;
-    }
-  }, [title]);
-
-  useEffect(() => {
     if (newTask === '') {
       return;
     } else {

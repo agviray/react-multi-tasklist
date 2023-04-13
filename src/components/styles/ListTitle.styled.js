@@ -11,7 +11,7 @@ export const StyledListTitle = styled.div`
     width: 90%;
     height: 100%;
     padding: 10px 12px;
-    color: ${({ isDefaultTitle }) => (isDefaultTitle ? '#b3b3b3' : '#333333')};
+    color: ${({ isValid }) => (isValid ? '#333333' : '#b3b3b3')};
     font-size: 20px;
     overflow-wrap: break-word;
     box-shadow: none;
