@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import AllLists from './AllLists';
 import { StyledHome } from '../styles/Home.styled';
 import Message from '../Message';
+import { loadSavedLists } from '../../actions';
 
 const initialAllLists = [
   {
@@ -122,4 +124,12 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    allLists: state.allLists,
+  };
+};
+
+export default connect(mapStateToProps, {
+  loadSavedLists: loadSavedLists,
+})(Home);
