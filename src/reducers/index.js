@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import allListsReducer from './allListsReducer';
-import activeListReducer from './activeListReducer';
+import selectedListReducer from './selectedListReducer';
 
 const rootReducer = combineReducers({
   allLists: allListsReducer,
-  // activeList: activeListReducer,
+  selectedList: selectedListReducer,
 });
 
 export default rootReducer;

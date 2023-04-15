@@ -1,5 +1,5 @@
 import { types } from './types';
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 export const loadSavedLists = (savedLists) => {
   return {
@@ -26,5 +26,12 @@ export const deleteList = (listId) => {
   return {
     type: types.LIST_DELETED,
     payload: listId,
+  };
+};
+
+export const selectList = (list) => {
+  return {
+    type: types.LIST_SELECTED,
+    payload: list,
   };
 };
