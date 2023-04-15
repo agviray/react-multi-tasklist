@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { loadSavedLists } from '../../actions';
+import { loadSavedLists, createList } from '../../actions';
 import { v4 as uuidv4 } from 'uuid';
 import { StyledHome } from '../styles/Home.styled';
 import AllLists from '../AllLists';
@@ -77,7 +77,7 @@ const initialAllLists = [
   },
 ];
 
-const Home = ({ allLists, loadSavedLists }) => {
+const Home = ({ allLists, loadSavedLists, createList }) => {
   const [messageText, setMessageText] = useState('');
 
   useEffect(() => {
@@ -106,18 +106,16 @@ const Home = ({ allLists, loadSavedLists }) => {
     localStorage.setItem('storedMultiTasklistState', JSON.stringify(allLists));
   }, [allLists]);
 
+  const createNewList = () => {
+    createList();
+  };
+
   return (
     <StyledHome>
       <div>
         <Message text={messageText} />
         <div>
-          <span
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-          >
-            Add List +
-          </span>
+          <span onClick={createNewList}>Add List +</span>
         </div>
       </div>
       {allLists.length === 0 ? null : <AllLists />}
@@ -133,4 +131,5 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   loadSavedLists: loadSavedLists,
+  createList: createList,
 })(Home);

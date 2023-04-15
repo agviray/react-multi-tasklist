@@ -22,6 +22,13 @@ export const saveUpdatedList = (updatedList) => {
   };
 };
 
+export const createList = () => {
+  return {
+    type: types.LIST_CREATED,
+    payload: uuidv4(),
+  };
+};
+
 export const deleteList = (listId) => {
   return {
     type: types.LIST_DELETED,

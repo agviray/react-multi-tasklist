@@ -11,6 +11,16 @@ const allListsReducer = (state = INITIAL_STATE, action) => {
     case types.UPDATED_LIST_SAVED:
       const editedList = action.payload;
       return [editedList, ...state.filter((list) => list.id !== editedList.id)];
+    case types.LIST_CREATED:
+      return [
+        {
+          id: action.payload,
+          title: '',
+          items: [],
+          view: 'all',
+        },
+        ...state,
+      ];
     case types.LIST_DELETED:
       return [...state].filter((list) => list.id !== action.payload);
 
