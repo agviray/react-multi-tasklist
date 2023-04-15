@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { addItem } from '../actions';
 import { StyledListItemAdder } from './styles/ListItemAdder.styled';
 
 const defaultText = 'Enter a task';
 
-const ListItemAdder = ({ onNewTaskChange }) => {
+const ListItemAdder = ({ addItem }) => {
   const [text, setText] = useState(defaultText);
 
   const handleChange = (e) => {
@@ -33,7 +35,7 @@ const ListItemAdder = ({ onNewTaskChange }) => {
     if (taskToAdd === '' || taskToAdd === defaultText) {
       return;
     }
-    onNewTaskChange(taskToAdd);
+    addItem(taskToAdd);
     setText(defaultText);
   };
 
@@ -54,4 +56,6 @@ const ListItemAdder = ({ onNewTaskChange }) => {
   );
 };
 
-export default ListItemAdder;
+export default connect(null, {
+  addItem: addItem,
+})(ListItemAdder);

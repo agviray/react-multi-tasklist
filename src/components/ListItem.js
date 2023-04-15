@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { updateItem } from '../actions/index';
 import {
   StyledListItem,
   StyledItemDefault,
@@ -7,7 +9,7 @@ import {
 } from './styles/ListItem.styled';
 import EditIcon from './icons/EditIcon';
 
-const ListItem = ({ task }) => {
+const ListItem = ({ itemId, task, updateItem }) => {
   const [text, setText] = useState(task);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -17,6 +19,7 @@ const ListItem = ({ task }) => {
 
   const handleItemTextareaBlur = (e) => {
     setText(e.target.value);
+    updateItem(itemId, e.target.value);
     // - Invoke a callback that will update all items to store, with
     //   the updated item text.
     // - Need an id for every item, so that callback will know which item
@@ -58,4 +61,6 @@ const ListItem = ({ task }) => {
   );
 };
 
-export default ListItem;
+export default connect(null, {
+  updateItem: updateItem,
+})(ListItem);

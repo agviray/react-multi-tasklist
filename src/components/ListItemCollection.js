@@ -1,15 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { StyledListItemCollection } from './styles/ListItemCollection.styled';
 import ListItem from './ListItem';
 
-const ListItemCollection = ({ items }) => {
+const ListItemCollection = ({ selectedList }) => {
   return (
     <StyledListItemCollection>
-      {items.map((item, index) => (
-        <ListItem key={index} task={item} />
+      {selectedList.items.map((item) => (
+        <ListItem key={item.id} itemId={item.id} task={item.text} />
       ))}
     </StyledListItemCollection>
   );
 };
 
-export default ListItemCollection;
+const mapStateToProps = (state) => {
+  return {
+    selectedList: state.selectedList,
+  };
+};
+
+export default connect(mapStateToProps)(ListItemCollection);

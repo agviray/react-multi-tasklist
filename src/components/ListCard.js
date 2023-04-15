@@ -5,7 +5,7 @@ const ListCard = ({ list }) => {
   const renderCardContent = (listContent) => {
     const title = listContent.title === '' ? 'New List' : listContent.title;
     const items = listContent.items.map((item, index) => (
-      <li key={index}>{item}</li>
+      <li key={item.id}>{item.text}</li>
     ));
     const message = 'There are no items in this list.';
 

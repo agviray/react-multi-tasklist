@@ -49,3 +49,24 @@ export const updateTitle = (title) => {
     payload: title,
   };
 };
+
+export const addItem = (text) => {
+  return {
+    type: types.ITEM_ADDED,
+    payload: {
+      newItemId: uuidv4(),
+      newItemText: text,
+      initialStatus: false,
+    },
+  };
+};
+
+export const updateItem = (idOfUpdatedItem, updatedItemText) => {
+  return {
+    type: types.ITEM_UPDATED,
+    payload: {
+      idOfUpdatedItem: idOfUpdatedItem,
+      updatedItemText: updatedItemText,
+    },
+  };
+};
