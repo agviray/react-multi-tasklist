@@ -35,3 +35,10 @@ export const selectList = (list) => {
     payload: list,
   };
 };
+
+export const updateTitle = (title) => {
+  return {
+    type: types.TITLE_UPDATED,
+    payload: title,
+  };
+};
