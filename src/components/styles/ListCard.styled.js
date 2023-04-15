@@ -26,6 +26,14 @@ export const StyledListCard = styled.div`
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+  }
+
   & h2 {
     font-size: 20px;
     overflow-wrap: break-word;

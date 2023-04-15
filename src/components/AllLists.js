@@ -15,7 +15,7 @@ const AllLists = ({ allLists, selectList }) => {
       {allLists.map((list) => (
         <Link
           onClick={() => viewSelectedList(list)}
-          to={`/list/${list.title}`}
+          to={list.title === '' ? '/list/New List' : `/list/${list.title}`}
           key={list.id}
         >
           <ListCard list={list} />
