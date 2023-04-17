@@ -29,7 +29,7 @@ export const StyledListItemAdder = styled.div`
     background-color: #0066ff;
 
     &:hover {
-      cursor: default;
+      cursor: pointer;
     }
 
     span {

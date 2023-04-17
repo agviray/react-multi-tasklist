@@ -18,7 +18,7 @@ export const StyledListTitle = styled.div`
     transition: box-shadow 0.3s ease, color 0.3s ease;
 
     &:hover {
-      cursor: default;
+      cursor: pointer;
       box-shadow: inset 0 0 5px #a4a4a4;
     }
   }
@@ -27,6 +27,10 @@ export const StyledListTitle = styled.div`
     display: flex;
     align-items: center;
     padding: 0.5rem;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
 
