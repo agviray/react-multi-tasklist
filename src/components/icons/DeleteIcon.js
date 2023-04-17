@@ -35,6 +35,7 @@ const DeleteIcon = ({ listId, listTitle, displayModal, deleteList }) => {
         text: 'Delete List',
         callback: () => deleteSelectedList(),
       },
+      modalHasCancelOption: true,
     });
 
     // - Prevents click event from registering in DeleteIcon's

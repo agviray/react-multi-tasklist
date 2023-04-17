@@ -42,7 +42,9 @@ const Modal = ({ modal, hideModal }) => {
           <div>
             <StyledButtonContainer>
               <span onClick={proceedWithAction}>{modal.button.text}</span>
-              <span onClick={closeModal}>Cancel</span>
+              {modal.hasCancelOption ? (
+                <span onClick={closeModal}>Cancel</span>
+              ) : null}
             </StyledButtonContainer>
           </div>
         </StyledMessageBox>
