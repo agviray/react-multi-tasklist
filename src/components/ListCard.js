@@ -1,17 +1,21 @@
 import React from 'react';
 import { StyledListCard } from './styles/ListCard.styled';
+import DeleteIcon from './icons/DeleteIcon';
 
 const ListCard = ({ list }) => {
   const renderCardContent = (listContent) => {
     const title = listContent.title === '' ? 'New List' : listContent.title;
-    const items = listContent.items.map((item, index) => (
+    const items = listContent.items.map((item) => (
       <li key={item.id}>{item.text}</li>
     ));
     const message = 'There are no items in this list.';
 
     return (
       <>
-        <h2>{title}</h2>
+        <div>
+          <h2>{title}</h2>
+          <DeleteIcon listId={list.id} listTitle={list.title} />
+        </div>
         <>
           {listContent.items.length === 0 ? (
             <div>

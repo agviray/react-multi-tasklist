@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
 }
 
 body {
+  min-width: 300px;
   color: #333333
   font-size: 16px;
   line-height: 1.6;

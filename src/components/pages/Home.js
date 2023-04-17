@@ -4,6 +4,7 @@ import { createList } from '../../actions';
 import { StyledHome } from '../styles/Home.styled';
 import AllLists from '../AllLists';
 import Message from '../Message';
+import Modal from '../Modal';
 
 const Home = ({ allLists, createList }) => {
   const [messageText, setMessageText] = useState('');
@@ -32,15 +33,18 @@ const Home = ({ allLists, createList }) => {
   };
 
   return (
-    <StyledHome>
-      <div>
-        <Message text={messageText} />
+    <>
+      <StyledHome>
         <div>
-          <span onClick={createNewList}>Add List +</span>
+          <Message text={messageText} />
+          <div>
+            <span onClick={createNewList}>Add List +</span>
+          </div>
         </div>
-      </div>
-      {allLists.length === 0 ? null : <AllLists />}
-    </StyledHome>
+        {allLists.length === 0 ? null : <AllLists />}
+      </StyledHome>
+      <Modal />
+    </>
   );
 };
 

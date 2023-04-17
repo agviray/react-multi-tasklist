@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const StyledListCard = styled.div`
   position: relative;
   height: 250px;
-  padding: 1.5rem;
   background-color: white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   overflow: hidden;
@@ -28,20 +27,29 @@ export const StyledListCard = styled.div`
 
   & > div {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding-top: 40px;
+    padding: 1rem;
+
+    &:nth-of-type(1) {
+      gap: 10px;
+      background-color: #f9f9f9;
+    }
+
+    &:nth-of-type(2) {
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 40px;
+    }
   }
 
   & h2 {
     font-size: 20px;
     overflow-wrap: break-word;
-    padding-bottom: 1.5rem;
   }
 
   & ul {
-    padding-left: 1.25rem;
+    padding: 1rem 2rem;
     overflow-wrap: break-word;
 
     & li {

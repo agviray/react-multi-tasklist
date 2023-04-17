@@ -1,6 +1,20 @@
 import { types } from './types';
 import { v4 as uuidv4 } from 'uuid';
 
+export const displayModal = (modalDetails) => {
+  return {
+    type: types.MODAL_DISPLAYED,
+    payload: modalDetails,
+  };
+};
+
+export const hideModal = (modalDetails) => {
+  return {
+    type: types.MODAL_HIDDEN,
+    payload: modalDetails,
+  };
+};
+
 export const loadSavedLists = (savedLists) => {
   return {
     type: types.INITIAL_LISTS_LOADED,
