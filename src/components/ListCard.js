@@ -4,11 +4,11 @@ import DeleteIcon from './icons/DeleteIcon';
 
 const ListCard = ({ list }) => {
   const renderCardContent = (listContent) => {
-    const title = listContent.title === '' ? 'New List' : listContent.title;
+    const title = listContent.title === '' ? 'Add a title' : listContent.title;
     const items = listContent.items.map((item) => (
       <li key={item.id}>{item.text}</li>
     ));
-    const message = 'There are no items in this list.';
+    const message = 'Select this list to begin adding items.';
 
     return (
       <>
@@ -29,7 +29,11 @@ const ListCard = ({ list }) => {
     );
   };
 
-  return <StyledListCard>{renderCardContent(list)}</StyledListCard>;
+  return (
+    <StyledListCard isTitleBlank={list.title === '' ? true : false}>
+      {renderCardContent(list)}
+    </StyledListCard>
+  );
 };
 
 export default ListCard;

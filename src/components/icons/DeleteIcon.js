@@ -19,7 +19,7 @@ const StyledIcon = styled.span`
 `;
 
 const DeleteIcon = ({ listId, listTitle, displayModal, deleteList }) => {
-  const [fillColor, setFillColor] = useState('#e7e7e7');
+  const [fillColor, setFillColor] = useState('#b3b3b3');
 
   const deleteSelectedList = () => {
     deleteList(listId);

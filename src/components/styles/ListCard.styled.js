@@ -40,12 +40,17 @@ export const StyledListCard = styled.div`
       flex-direction: column;
       justify-content: center;
       padding-top: 40px;
+
+      p {
+        color: #b3b3b3;
+      }
     }
   }
 
   & h2 {
     font-size: 20px;
     overflow-wrap: break-word;
+    color: ${({ isTitleBlank }) => (isTitleBlank ? '#b3b3b3' : '#333333')};
   }
 
   & ul {
