@@ -9,7 +9,7 @@ const allListsReducer = (state = INITIAL_STATE, action) => {
     case types.NEW_LIST_SAVED:
       return [action.payload, ...state];
     case types.UPDATED_LIST_SAVED:
-      const editedList = action.payload;
+      const editedList = { ...action.payload, wasAltered: false };
       return [editedList, ...state.filter((list) => list.id !== editedList.id)];
     case types.LIST_CREATED:
       return [
@@ -18,6 +18,7 @@ const allListsReducer = (state = INITIAL_STATE, action) => {
           title: '',
           items: [],
           view: 'all',
+          wasAltered: false,
         },
         ...state,
       ];

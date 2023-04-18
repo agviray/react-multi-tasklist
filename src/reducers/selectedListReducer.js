@@ -5,7 +5,7 @@ const selectedListReducer = (state = {}, action) => {
     case types.LIST_SELECTED:
       return action.payload;
     case types.TITLE_UPDATED:
-      return { ...state, title: action.payload };
+      return { ...state, title: action.payload, wasAltered: true };
     case types.ITEM_ADDED:
       const { newItemId, newItemText, initialStatus } = action.payload;
       return {
@@ -18,6 +18,7 @@ const selectedListReducer = (state = {}, action) => {
             isComplete: initialStatus,
           },
         ],
+        wasAltered: true,
       };
     case types.ITEM_UPDATED:
       const { idOfUpdatedItem, updatedItemText } = action.payload;
@@ -30,6 +31,7 @@ const selectedListReducer = (state = {}, action) => {
             return item;
           }
         }),
+        wasAltered: true,
       };
     default:
       return state;
