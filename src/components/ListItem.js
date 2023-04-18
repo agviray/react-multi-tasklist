@@ -1,17 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { updateItem } from '../actions/index';
 import {
   StyledListItem,
   StyledItemDefault,
-  Icon,
   StyledItemEditor,
 } from './styles/ListItem.styled';
-import EditIcon from './icons/EditIcon';
+import ListItemMenu from './ListItemMenu';
+import ItemMenuIcon from './icons/ItemMenuIcon';
 
 const ListItem = ({ itemId, task, updateItem }) => {
   const [text, setText] = useState(task);
   const [isEditing, setIsEditing] = useState(false);
+  const [isMenuActive, setIsMenuActive] = useState(false);
+  const iconRef = useRef(null);
+
+  useEffect(() => {
+    const onBodyClick = (e) => {
+      const iconContainer = iconRef.current;
+      if (iconContainer.contains(e.target)) {
+        return;
+      }
+      setIsMenuActive(false);
+    };
+
+    document.body.addEventListener('click', onBodyClick);
+
+    return () => {
+      document.body.removeEventListener('click', onBodyClick);
+    };
+  }, []);
 
   const editItem = (status) => {
     setIsEditing(status);
@@ -20,15 +38,15 @@ const ListItem = ({ itemId, task, updateItem }) => {
   const handleItemTextareaBlur = (e) => {
     setText(e.target.value);
     updateItem(itemId, e.target.value);
-    // - Invoke a callback that will update all items to store, with
-    //   the updated item text.
-    // - Need an id for every item, so that callback will know which item
-    //   it will be replacing.
     editItem(false);
   };
 
   const handleItemChange = (e) => {
     setText(e.target.value);
+  };
+
+  const handleIconClick = () => {
+    setIsMenuActive(true);
   };
 
   const resizeEditor = (e) => {
@@ -54,9 +72,14 @@ const ListItem = ({ itemId, task, updateItem }) => {
   return (
     <StyledListItem>
       {isEditing ? itemEditor : defaultItemDisplay}
-      <Icon onClick={() => editItem(true)}>
-        <EditIcon />
-      </Icon>
+      <div
+        ref={iconRef}
+        className={'iconContainer'}
+        onClick={() => handleIconClick()}
+      >
+        <ItemMenuIcon isMenuActive={isMenuActive} />
+      </div>
+      <ListItemMenu itemId={itemId} isMenuActive={isMenuActive} />
     </StyledListItem>
   );
 };
