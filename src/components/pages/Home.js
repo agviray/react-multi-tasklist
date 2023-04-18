@@ -4,7 +4,6 @@ import { createList } from '../../actions';
 import { StyledHome } from '../styles/Home.styled';
 import AllLists from '../AllLists';
 import Message from '../Message';
-import Modal from '../Modal';
 
 const Home = ({ allLists, createList }) => {
   const [messageText, setMessageText] = useState('');
@@ -43,7 +42,6 @@ const Home = ({ allLists, createList }) => {
         </div>
         {allLists.length === 0 ? null : <AllLists />}
       </StyledHome>
-      <Modal />
     </>
   );
 };

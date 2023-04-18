@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadSavedLists } from '../actions';
 import HeaderContent from './HeaderContent';
+import Modal from './Modal';
 import GlobalStyles from './styles/GlobalStyles';
 import { StyledMainContent } from './styles/Layout.styled';
 
@@ -29,6 +30,7 @@ const Layout = ({ loadSavedLists }) => {
         </StyledMainContent>
       </main>
       <footer></footer>
+      <Modal />
     </>
   );
 };

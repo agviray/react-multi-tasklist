@@ -37,9 +37,8 @@ const DeleteIcon = ({ listId, listTitle, displayModal, deleteList }) => {
       },
       modalHasCancelOption: true,
     });
-
-    // - Prevents click event from registering in DeleteIcon's
-    //   parent container (the Link wrapper, from react-router-dom).
+    // - The following line prevents click event from bubbling to DeleteIcon's
+    //   parent container (Link).
     e.preventDefault();
   };
 
