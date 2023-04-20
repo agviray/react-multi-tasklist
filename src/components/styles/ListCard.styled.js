@@ -54,15 +54,34 @@ export const StyledListCard = styled.div`
   }
 
   & ul {
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     overflow-wrap: break-word;
 
     & li {
       list-style-type: disc;
+      margin-left: 16px;
+      padding-left: 9px;
 
       &:not(:last-child) {
         padding-bottom: 1rem;
       }
     }
+  }
+`;
+
+export const StyledCompletedItem = styled.div`
+  position: relative;
+  padding-bottom: 1rem;
+
+  & > span {
+    position: absolute;
+    top: 2.5px;
+    left: 0;
+  }
+
+  & div {
+    position: relative;
+    display: inline-block;
+    padding-left: 25px;
   }
 `;

@@ -7,9 +7,10 @@ import {
   StyledItemEditor,
 } from './styles/ListItem.styled';
 import ListItemMenu from './ListItemMenu';
+import Checkmark from './icons/Checkmark';
 import ItemMenuIcon from './icons/ItemMenuIcon';
 
-const ListItem = ({ itemId, task, updateItem }) => {
+const ListItem = ({ itemId, task, isComplete, updateItem }) => {
   const [text, setText] = useState(task);
   const [isEditing, setIsEditing] = useState(false);
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -56,7 +57,24 @@ const ListItem = ({ itemId, task, updateItem }) => {
   };
 
   const defaultItemDisplay = (
-    <StyledItemDefault onClick={() => editItem(true)}>{text}</StyledItemDefault>
+    <>
+      <StyledItemDefault
+        className={isComplete ? 'complete' : ''}
+        onClick={() => (isComplete ? null : editItem(true))}
+      >
+        {isComplete ? (
+          <>
+            <span>
+              <Checkmark iconColor={'#50bda1'} />
+            </span>
+
+            <div>{text}</div>
+          </>
+        ) : (
+          <>{text}</>
+        )}
+      </StyledItemDefault>
+    </>
   );
 
   const itemEditor = (
@@ -70,17 +88,19 @@ const ListItem = ({ itemId, task, updateItem }) => {
   );
 
   return (
-    <StyledListItem>
-      {isEditing ? itemEditor : defaultItemDisplay}
-      <div
-        ref={iconRef}
-        className={'iconContainer'}
-        onClick={() => handleIconClick()}
-      >
-        <ItemMenuIcon isMenuActive={isMenuActive} />
-      </div>
-      <ListItemMenu itemId={itemId} isMenuActive={isMenuActive} />
-    </StyledListItem>
+    <>
+      <StyledListItem>
+        {isEditing ? itemEditor : defaultItemDisplay}
+        <div
+          ref={iconRef}
+          className={'iconContainer'}
+          onClick={() => handleIconClick()}
+        >
+          {isComplete ? null : <ItemMenuIcon isMenuActive={isMenuActive} />}
+        </div>
+        <ListItemMenu itemId={itemId} isMenuActive={isMenuActive} />
+      </StyledListItem>
+    </>
   );
 };
 

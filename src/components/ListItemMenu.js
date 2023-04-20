@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { deleteItem, markItemComplete } from '../actions';
 import { StyledListItemMenu } from './styles/ListItemMenu.styled';
 import Checkmark from './icons/Checkmark';
 import Trashcan from './icons/Trashcan';
 
-const ListItemMenu = ({ itemId, isMenuActive }) => {
+const ListItemMenu = ({
+  itemId,
+  isMenuActive,
+  markItemComplete,
+  deleteItem,
+}) => {
   const [isActive, setIsActive] = useState(false);
   const [checkmarkColor, setCheckmarkColor] = useState('#333333');
   const [trashcanColor, setTrashcanColor] = useState('#333333');
@@ -16,37 +23,21 @@ const ListItemMenu = ({ itemId, isMenuActive }) => {
     }
   }, [isMenuActive]);
 
-  const markItemComplete = (itemId) => {
-    console.log(itemId);
-    /*
-    =============================================
-    =============================================
-    MARK ITEM AS COMPLETE
-    =============================================
-    =============================================
-    */
-    return;
+  const markItemAsComplete = (itemId) => {
+    markItemComplete(itemId);
   };
 
-  const deleteItem = (itemId) => {
-    console.log(itemId);
-    /*
-    *********************************************
-    *********************************************
-    DELETE ITEM FROM LIST
-    *********************************************
-    *********************************************
-    */
-    return;
+  const deleteItemFromList = (itemId) => {
+    deleteItem(itemId);
   };
 
   return isActive ? (
     <StyledListItemMenu>
       <ul>
         <li
-          onClick={() => markItemComplete(itemId)}
           onMouseEnter={() => setCheckmarkColor('white')}
           onMouseLeave={() => setCheckmarkColor('#333333')}
+          onClick={() => markItemAsComplete(itemId)}
         >
           <span>Mark Complete</span>
           <Checkmark iconColor={checkmarkColor} />
@@ -54,7 +45,7 @@ const ListItemMenu = ({ itemId, isMenuActive }) => {
         <li
           onMouseEnter={() => setTrashcanColor('white')}
           onMouseLeave={() => setTrashcanColor('#333333')}
-          onClick={() => deleteItem(itemId)}
+          onClick={() => deleteItemFromList(itemId)}
         >
           <span>Delete</span>
           <Trashcan iconColor={trashcanColor} />
@@ -64,4 +55,7 @@ const ListItemMenu = ({ itemId, isMenuActive }) => {
   ) : null;
 };
 
-export default ListItemMenu;
+export default connect(null, {
+  deleteItem: deleteItem,
+  markItemComplete: markItemComplete,
+})(ListItemMenu);

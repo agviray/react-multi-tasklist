@@ -7,7 +7,12 @@ const ListItemCollection = ({ selectedList }) => {
   return (
     <StyledListItemCollection>
       {selectedList.items.map((item) => (
-        <ListItem key={item.id} itemId={item.id} task={item.text} />
+        <ListItem
+          key={item.id}
+          itemId={item.id}
+          task={item.text}
+          isComplete={item.isComplete}
+        />
       ))}
     </StyledListItemCollection>
   );

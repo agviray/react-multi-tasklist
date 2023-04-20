@@ -19,11 +19,36 @@ export const StyledListItem = styled.li`
 export const StyledItemDefault = styled.div`
   display: inline-block;
   width: 90%;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem;
   overflow-wrap: break-word;
+
+  &.complete {
+    display: flex;
+    align-items: center;
+
+    & > span {
+      &:nth-of-type(1) {
+        position: absolute;
+        top: 22px;
+        left: 0;
+      }
+    }
+
+    & > div {
+      display: inline-block;
+      overflow-wrap: break-word;
+      padding-left: 20px;
+    }
+
+    &:hover {
+      cursor: default;
+      box-shadow: none;
+    }
+  }
 
   &:hover {
     cursor: pointer;
+    box-shadow: inset 0 0 5px #a4a4a4;
   }
 `;
 

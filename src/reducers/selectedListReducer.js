@@ -20,6 +20,12 @@ const selectedListReducer = (state = {}, action) => {
         ],
         wasAltered: true,
       };
+    case types.ITEM_DELETED:
+      return {
+        ...state,
+        items: [...state.items.filter((item) => item.id !== action.payload)],
+        wasAltered: true,
+      };
     case types.ITEM_UPDATED:
       const { idOfUpdatedItem, updatedItemText } = action.payload;
       return {
@@ -27,6 +33,18 @@ const selectedListReducer = (state = {}, action) => {
         items: state.items.map((item) => {
           if (item.id === idOfUpdatedItem) {
             return { ...item, text: updatedItemText };
+          } else {
+            return item;
+          }
+        }),
+        wasAltered: true,
+      };
+    case types.ITEM_COMPLETED:
+      return {
+        ...state,
+        items: state.items.map((item) => {
+          if (item.id === action.payload) {
+            return { ...item, isComplete: true };
           } else {
             return item;
           }

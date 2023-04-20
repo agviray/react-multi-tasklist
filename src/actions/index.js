@@ -75,6 +75,13 @@ export const addItem = (text) => {
   };
 };
 
+export const deleteItem = (itemId) => {
+  return {
+    type: types.ITEM_DELETED,
+    payload: itemId,
+  };
+};
+
 export const updateItem = (idOfUpdatedItem, updatedItemText) => {
   return {
     type: types.ITEM_UPDATED,
@@ -82,5 +89,12 @@ export const updateItem = (idOfUpdatedItem, updatedItemText) => {
       idOfUpdatedItem: idOfUpdatedItem,
       updatedItemText: updatedItemText,
     },
+  };
+};
+
+export const markItemComplete = (itemId) => {
+  return {
+    type: types.ITEM_COMPLETED,
+    payload: itemId,
   };
 };
