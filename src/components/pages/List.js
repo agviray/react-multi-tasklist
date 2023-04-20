@@ -1,6 +1,7 @@
 import React from 'react';
 import ListTitle from '../ListTitle';
 import ListItemAdder from '../ListItemAdder';
+import ListViewToggler from '../ListViewToggler';
 import ListItemCollection from '../ListItemCollection';
 
 const List = () => {
@@ -10,6 +11,7 @@ const List = () => {
     <div>
       <ListTitle />
       <ListItemAdder />
+      <ListViewToggler />
       <ListItemCollection />
     </div>
   );

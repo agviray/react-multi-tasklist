@@ -4,7 +4,7 @@ export const StyledListTitle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   h2 {
     display: inline-block;
