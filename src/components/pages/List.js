@@ -1,19 +1,20 @@
 import React from 'react';
+import { StyledList } from '../styles/List.styled';
 import ListTitle from '../ListTitle';
 import ListItemAdder from '../ListItemAdder';
 import ListViewToggler from '../ListViewToggler';
-import ListItemCollection from '../ListItemCollection';
+import ListView from '../ListView';
 
 const List = () => {
-  console.log('useEffect ran in List page');
+  console.log('List page re-rendered.');
 
   return (
-    <div>
+    <StyledList>
       <ListTitle />
       <ListItemAdder />
       <ListViewToggler />
-      <ListItemCollection />
-    </div>
+      <ListView />
+    </StyledList>
   );
 };
 

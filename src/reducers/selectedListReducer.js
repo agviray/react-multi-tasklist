@@ -51,6 +51,8 @@ const selectedListReducer = (state = {}, action) => {
         }),
         wasAltered: true,
       };
+    case types.VIEW_CHANGED:
+      return { ...state, view: action.payload };
     default:
       return state;
   }

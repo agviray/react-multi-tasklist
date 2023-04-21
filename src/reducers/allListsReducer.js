@@ -17,7 +17,7 @@ const allListsReducer = (state = INITIAL_STATE, action) => {
           id: action.payload,
           title: '',
           items: [],
-          view: 'all',
+          view: 'active',
           wasAltered: false,
         },
         ...state,

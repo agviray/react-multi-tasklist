@@ -98,3 +98,10 @@ export const markItemComplete = (itemId) => {
     payload: itemId,
   };
 };
+
+export const changeView = (view) => {
+  return {
+    type: types.VIEW_CHANGED,
+    payload: view,
+  };
+};

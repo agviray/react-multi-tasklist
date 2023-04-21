@@ -1,22 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { changeView } from '../actions';
 import { StyledListViewToggler } from './styles/ListViewToggler.styled';
 
 const initialFields = [
   {
-    name: 'All',
-    isSelected: true,
-  },
-  {
     name: 'Active',
-    isSelected: false,
+    isSelected: true,
   },
   {
     name: 'Complete',
     isSelected: false,
   },
+  {
+    name: 'All',
+    isSelected: false,
+  },
 ];
-const ListViewToggler = () => {
+const ListViewToggler = ({ changeView }) => {
   const [fields, setFields] = useState(initialFields);
+
+  useEffect(() => {
+    const selectedField = fields.filter((field) => field.isSelected !== false);
+    if (selectedField[0].name === 'Active') {
+      changeView('active');
+    } else if (selectedField[0].name === 'Complete') {
+      changeView('complete');
+    } else if (selectedField[0].name === 'All') {
+      changeView('all');
+    }
+  }, [fields]);
 
   const updateFields = (selectedField) => {
     const updatedFields = fields.map((field) => {
@@ -53,4 +66,6 @@ const ListViewToggler = () => {
   );
 };
 
-export default ListViewToggler;
+export default connect(null, {
+  changeView: changeView,
+})(ListViewToggler);
