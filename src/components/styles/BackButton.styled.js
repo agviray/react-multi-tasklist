@@ -20,4 +20,8 @@ export const StyledBackButton = styled.span`
     -ms-transform: rotate(45deg) scale(1);
     transform: rotate(45deg) scale(1);
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 `;

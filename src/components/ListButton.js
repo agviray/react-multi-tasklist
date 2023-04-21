@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { saveUpdatedList } from '../actions';
 import { StyledListButton } from './styles/ListButton.styled';
 
 const ListButton = ({ selectedList, saveUpdatedList }) => {
   const [isAvailable, setIsAvailable] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log('useEffect in ListButton component ran.');
@@ -15,20 +16,22 @@ const ListButton = ({ selectedList, saveUpdatedList }) => {
     }
   }, [selectedList.wasAltered]);
 
-  const saveList = (e, list) => {
+  const saveList = (list) => {
     if (!isAvailable) {
-      e.preventDefault();
       return;
+    } else {
+      saveUpdatedList(list);
+      navigate('/');
     }
-    saveUpdatedList(list);
   };
 
   return (
-    <Link to="/" onClick={(e) => saveList(e, selectedList)}>
-      <StyledListButton className={`${isAvailable ? '' : 'disabled'}`}>
-        Save
-      </StyledListButton>
-    </Link>
+    <StyledListButton
+      className={`${isAvailable ? '' : 'disabled'}`}
+      onClick={() => saveList(selectedList)}
+    >
+      Save
+    </StyledListButton>
   );
 };
 

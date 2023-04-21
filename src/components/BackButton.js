@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { displayModal, saveUpdatedList } from '../actions';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { StyledBackButton } from './styles/BackButton.styled';
 
 const BackButton = ({ selectedList, displayModal, saveUpdatedList }) => {
@@ -19,7 +19,7 @@ const BackButton = ({ selectedList, displayModal, saveUpdatedList }) => {
     navigate('/');
   };
 
-  const handleBackButtonClick = (e, list) => {
+  const handleBackButtonClick = (list) => {
     if (list.wasAltered) {
       displayModal({
         modalHeading: 'Changes Found',
@@ -31,19 +31,15 @@ const BackButton = ({ selectedList, displayModal, saveUpdatedList }) => {
         },
         modalHasCancelOption: true,
       });
-      // - The following line prevents click event from bubbling to StyledBackButton's
-      //   parent container (Link).
-      e.preventDefault();
+    } else {
+      navigate('/');
     }
-    return;
   };
 
   return (
-    <Link to="/">
-      <StyledBackButton onClick={(e) => handleBackButtonClick(e, selectedList)}>
-        Back
-      </StyledBackButton>
-    </Link>
+    <StyledBackButton onClick={() => handleBackButtonClick(selectedList)}>
+      Back
+    </StyledBackButton>
   );
 };
 
