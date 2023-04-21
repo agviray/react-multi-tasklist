@@ -99,6 +99,13 @@ export const markItemComplete = (itemId) => {
   };
 };
 
+export const markItemIncomplete = (itemId) => {
+  return {
+    type: types.ITEM_MARKED_INCOMPLETE,
+    payload: itemId,
+  };
+};
+
 export const changeView = (view) => {
   return {
     type: types.VIEW_CHANGED,

@@ -5,14 +5,18 @@ export const StyledListItem = styled.li`
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 0.75rem 0;
+  padding: 0.75rem 0.5rem;
   border-bottom: solid #d3d3d3 1px;
+
+  &.menuActive {
+    background-color: #d2e6ff;
+  }
 
   .iconContainer {
     display: inline-block;
     position: absolute;
     top: 23.3px;
-    right: 0;
+    right: 8px;
   }
 `;
 
@@ -30,7 +34,7 @@ export const StyledItemDefault = styled.div`
       &:nth-of-type(1) {
         position: absolute;
         top: 22px;
-        left: 0;
+        left: 8px;
       }
     }
 

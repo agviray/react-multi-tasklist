@@ -89,16 +89,20 @@ const ListItem = ({ itemId, task, isComplete, updateItem }) => {
 
   return (
     <>
-      <StyledListItem>
+      <StyledListItem className={isMenuActive ? 'menuActive' : ''}>
         {isEditing ? itemEditor : defaultItemDisplay}
         <div
           ref={iconRef}
           className={'iconContainer'}
           onClick={() => handleIconClick()}
         >
-          {isComplete ? null : <ItemMenuIcon isMenuActive={isMenuActive} />}
+          <ItemMenuIcon isMenuActive={isMenuActive} />
         </div>
-        <ListItemMenu itemId={itemId} isMenuActive={isMenuActive} />
+        <ListItemMenu
+          itemId={itemId}
+          isComplete={isComplete}
+          isMenuActive={isMenuActive}
+        />
       </StyledListItem>
     </>
   );

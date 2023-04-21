@@ -51,6 +51,18 @@ const selectedListReducer = (state = {}, action) => {
         }),
         wasAltered: true,
       };
+    case types.ITEM_MARKED_INCOMPLETE:
+      return {
+        ...state,
+        items: state.items.map((item) => {
+          if (item.id === action.payload) {
+            return { ...item, isComplete: false };
+          } else {
+            return item;
+          }
+        }),
+        wasAltered: true,
+      };
     case types.VIEW_CHANGED:
       return { ...state, view: action.payload };
     default:
