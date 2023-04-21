@@ -19,16 +19,29 @@ const BackButton = ({ selectedList, displayModal, saveUpdatedList }) => {
     navigate('/');
   };
 
+  const saveChanges = () => {
+    saveUpdatedList({ ...selectedList });
+    navigate('/');
+  };
+
   const handleBackButtonClick = (list) => {
     if (list.wasAltered) {
       displayModal({
         modalHeading: 'Changes Found',
         modalBody:
           'You have made changes to this list. Exiting now will undo all of your current changes. How would you like to proceed?',
-        modalButton: {
-          text: 'Exit Without Saving',
-          callback: () => exitList(),
-        },
+        modalButtons: [
+          {
+            type: 'save',
+            text: 'Save Changes',
+            callback: () => saveChanges(),
+          },
+          {
+            type: 'caution',
+            text: 'Exit Without Saving',
+            callback: () => exitList(),
+          },
+        ],
         modalHasCancelOption: true,
       });
     } else {

@@ -26,7 +26,7 @@ export const StyledListItemAdder = styled.div`
     display: inline-flex;
     align-items: center;
     color: white;
-    background-color: #0066ff;
+    background-color: #7cb4f0;
 
     &:hover {
       cursor: pointer;

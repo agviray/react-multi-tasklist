@@ -5,7 +5,10 @@ export const StyledListCard = styled.div`
   height: 250px;
   background-color: white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
   overflow: hidden;
+  transform: scale(1);
+  transition: all 0.3s ease;
 
   &::after {
     content: '';
@@ -23,12 +26,12 @@ export const StyledListCard = styled.div`
   &:hover {
     cursor: default;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transform: scale(1.05);
   }
 
   & > div {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 1rem;
 
     &:nth-of-type(1) {
@@ -39,6 +42,7 @@ export const StyledListCard = styled.div`
     &:nth-of-type(2) {
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       padding-top: 40px;
 
       p {
@@ -59,8 +63,12 @@ export const StyledListCard = styled.div`
 
     & li {
       list-style-type: disc;
-      margin-left: 16px;
-      padding-left: 9px;
+      margin-left: 21px;
+
+      & > span {
+        display: block;
+        padding-left: 5px;
+      }
 
       &:not(:last-child) {
         padding-bottom: 1rem;

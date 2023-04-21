@@ -18,8 +18,8 @@ const Modal = ({ modal, hideModal }) => {
     }
   }, [modal]);
 
-  const proceedWithAction = () => {
-    modal.button.callback();
+  const proceedWithAction = (callback) => {
+    callback();
     hideModal({});
     setIsDisplayed(false);
   };
@@ -41,9 +41,19 @@ const Modal = ({ modal, hideModal }) => {
           </div>
           <div>
             <StyledButtonContainer>
-              <span onClick={proceedWithAction}>{modal.button.text}</span>
+              {modal.buttons.map((button, index) => (
+                <span
+                  key={index}
+                  className={`${button.type === 'save' ? 'save' : 'caution'}`}
+                  onClick={() => proceedWithAction(button.callback)}
+                >
+                  {button.text}
+                </span>
+              ))}
               {modal.hasCancelOption ? (
-                <span onClick={closeModal}>Cancel</span>
+                <span className="cancel" onClick={closeModal}>
+                  Cancel
+                </span>
               ) : null}
             </StyledButtonContainer>
           </div>

@@ -7,9 +7,13 @@ import { StyledListHeaderContent } from './styles/ListPageHeaderContent.styled';
 const ListPageHeaderContent = () => {
   return (
     <StyledListHeaderContent>
-      <BackButton />
-      <ListButton />
-      <Ellipsis />
+      <div>
+        <BackButton />
+      </div>
+      <div>
+        <ListButton />
+      </div>
+      {/* <Ellipsis /> */}
     </StyledListHeaderContent>
   );
 };

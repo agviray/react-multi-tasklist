@@ -24,14 +24,25 @@ export const StyledModal = styled.div`
 
 export const StyledMessageBox = styled.div`
   background-color: white;
-  width: 95%;
+  width: 85%;
+  max-width: 400px;
+  border-radius: 8px;
 
   & > div {
     padding: 1.5rem;
 
     &:nth-of-type(1),
     &:nth-of-type(3) {
-      background-color: #e7e7e7;
+      background-color: #d7e1ec;
+    }
+
+    &:nth-of-type(1) {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    &:nth-of-type(3) {
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
     }
   }
 
@@ -45,28 +56,42 @@ export const StyledButtonContainer = styled.div`
   flex-direction: column;
   gap: 15px;
 
-  @media screen and (min-width: 335px) {
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-
   span {
     display: inline-block;
     padding: 0.5rem 1rem;
     text-align: center;
+    border-radius: 5px;
 
     &:hover {
       cursor: pointer;
     }
 
-    &:nth-of-type(1) {
+    &.save {
       color: #fefefe;
-      background-color: #f54957;
+      background-color: #7cb4f0;
+
+      &:hover {
+        background-color: #3a70a9;
+      }
     }
 
-    &:nth-of-type(2) {
+    &.caution {
+      color: #fefefe;
+      background-color: #f54957;
+
+      &:hover {
+        background-color: #ca3a46;
+      }
+    }
+
+    &.cancel {
+      color: #333333;
       background-color: #f9f9f9;
+
+      &:hover {
+        color: #fefefe;
+        background-color: #b1b1b1;
+      }
     }
   }
 `;

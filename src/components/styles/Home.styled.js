@@ -6,6 +6,7 @@ export const StyledHome = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 2rem;
 
     div {
       display: flex;
@@ -16,8 +17,15 @@ export const StyledHome = styled.div`
       span {
         display: inline-block;
         text-align: center;
-        padding: 1rem;
-        background-color: lightgray;
+        padding: 0.5rem 1rem;
+        background-color: #7cb4f0;
+        color: #fefefe;
+        border-radius: 5px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: #3a70a9;
+        }
       }
     }
   }

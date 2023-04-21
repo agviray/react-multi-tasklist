@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 
 export const StyledHeaderContent = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 1.75rem;
-  background-color: white;
-  z-index: 10;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1.75rem 0;
+  border-radius: inherit;
 
   &::after {
     content: '';
@@ -20,6 +17,7 @@ export const StyledHeaderContent = styled.div`
     box-shadow: 0px 5px 9px 0px rgba(0, 0, 0, 0.16);
     z-index: -1;
     transition: opacity 0.3s ease;
+    border-radius: inherit;
   }
 
   h1 {

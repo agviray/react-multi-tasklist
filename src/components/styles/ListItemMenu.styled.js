@@ -7,7 +7,16 @@ export const StyledListItemMenu = styled.div`
   width: 30%;
   min-width: 200px;
   background-color: white;
+  border-radius: 5px;
   z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+
+  &.isActive {
+    visibility: visible;
+    opacity: 1;
+  }
 
   &:after {
     content: '';
@@ -22,7 +31,8 @@ export const StyledListItemMenu = styled.div`
 
   ul {
     padding: 0.5rem 0;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 20px 3px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+    border-radius: inherit;
 
     li {
       display: flex;

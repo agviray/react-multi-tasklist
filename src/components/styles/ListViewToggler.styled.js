@@ -6,6 +6,7 @@ export const StyledListViewToggler = styled.div`
   margin-bottom: 1rem;
   background-color: #f3f3f3;
   font-size: 14px;
+  border-radius: 8px;
 
   & > div {
     display: inline-block;

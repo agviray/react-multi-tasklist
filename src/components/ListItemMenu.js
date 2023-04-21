@@ -38,8 +38,8 @@ const ListItemMenu = ({
     markItemIncomplete(itemId);
   };
 
-  return isActive ? (
-    <StyledListItemMenu>
+  return (
+    <StyledListItemMenu className={`${isActive ? 'isActive' : ''}`}>
       <ul>
         {isComplete === true ? (
           <li
@@ -70,7 +70,7 @@ const ListItemMenu = ({
         </li>
       </ul>
     </StyledListItemMenu>
-  ) : null;
+  );
 };
 
 export default connect(null, {

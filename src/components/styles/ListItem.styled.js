@@ -7,9 +7,10 @@ export const StyledListItem = styled.li`
   gap: 10px;
   padding: 0.75rem 0.5rem;
   border-bottom: solid #d3d3d3 1px;
+  transition: background-color 0.3s ease;
 
   &.menuActive {
-    background-color: #d2e6ff;
+    background-color: #f3f8ff;
   }
 
   .iconContainer {
@@ -25,6 +26,12 @@ export const StyledItemDefault = styled.div`
   width: 90%;
   padding: 0.5rem 1rem;
   overflow-wrap: break-word;
+  transition: all 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: inset 0 0 5px #a4a4a4;
+  }
 
   &.complete {
     display: flex;
@@ -48,11 +55,6 @@ export const StyledItemDefault = styled.div`
       cursor: default;
       box-shadow: none;
     }
-  }
-
-  &:hover {
-    cursor: pointer;
-    box-shadow: inset 0 0 5px #a4a4a4;
   }
 `;
 

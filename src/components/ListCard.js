@@ -16,7 +16,9 @@ const ListCard = ({ list }) => {
           <div>{item.text}</div>
         </StyledCompletedItem>
       ) : (
-        <li key={item.id}>{item.text}</li>
+        <li key={item.id}>
+          <span>{item.text}</span>
+        </li>
       );
     });
 
@@ -24,7 +26,9 @@ const ListCard = ({ list }) => {
       <>
         <div>
           <h2>{title}</h2>
-          <DeleteIcon listId={list.id} listTitle={list.title} />
+          <div>
+            <DeleteIcon listId={list.id} listTitle={list.title} />
+          </div>
         </div>
         <>
           {listContent.items.length === 0 ? (
