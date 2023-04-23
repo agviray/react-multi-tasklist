@@ -50,6 +50,13 @@ export const deleteList = (listId) => {
   };
 };
 
+export const deleteAllLists = () => {
+  return {
+    type: types.ALL_LISTS_DELETED,
+    payload: [],
+  };
+};
+
 export const selectList = (list) => {
   return {
     type: types.LIST_SELECTED,

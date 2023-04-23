@@ -24,7 +24,8 @@ const allListsReducer = (state = INITIAL_STATE, action) => {
       ];
     case types.LIST_DELETED:
       return [...state].filter((list) => list.id !== action.payload);
-
+    case types.ALL_LISTS_DELETED:
+      return action.payload;
     default:
       return state;
   }

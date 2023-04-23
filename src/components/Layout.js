@@ -1,23 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { loadSavedLists } from '../actions';
 import HeaderContent from './HeaderContent';
 import Modal from './Modal';
 import GlobalStyles from './styles/GlobalStyles';
 import { StyledMainContent } from './styles/Layout.styled';
 
-const Layout = ({ loadSavedLists }) => {
-  // - Initial load of saved info, if any exists.
-  useEffect(() => {
-    const storedLists = JSON.parse(
-      localStorage.getItem('storedMultiTasklistState')
-    );
-    if (storedLists) {
-      loadSavedLists(storedLists);
-    }
-  }, []);
-
+const Layout = () => {
   return (
     <>
       <GlobalStyles />
@@ -35,6 +23,4 @@ const Layout = ({ loadSavedLists }) => {
   );
 };
 
-export default connect(null, {
-  loadSavedLists: loadSavedLists,
-})(Layout);
+export default Layout;

@@ -29,11 +29,11 @@ const BackButton = ({ selectedList, displayModal, saveUpdatedList }) => {
       displayModal({
         modalHeading: 'Changes Found',
         modalBody:
-          'You have made changes to this list. Exiting now will undo all of your current changes. How would you like to proceed?',
+          'You have made changes to this list. How would you like to proceed?',
         modalButtons: [
           {
             type: 'save',
-            text: 'Save Changes',
+            text: 'Save And Exit',
             callback: () => saveChanges(),
           },
           {

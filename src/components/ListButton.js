@@ -30,7 +30,7 @@ const ListButton = ({ selectedList, saveUpdatedList }) => {
       className={`${isAvailable ? '' : 'disabled'}`}
       onClick={() => saveList(selectedList)}
     >
-      Save
+      Save And Exit
     </StyledListButton>
   );
 };
