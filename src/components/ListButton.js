@@ -9,8 +9,6 @@ const ListButton = ({ selectedList, saveUpdatedList }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('useEffect in ListButton component ran.');
-
     if (selectedList.wasAltered === true) {
       setIsAvailable(true);
     }

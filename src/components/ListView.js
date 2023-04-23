@@ -1,16 +1,26 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 import {
   StyledListView,
   StyledListItemCollection,
 } from './styles/ListView.styled';
 import ListItem from './ListItem';
 
-const ListView = ({ selectedList }) => {
-  console.log('ListView re-rendered.');
+const ListView = ({ listInView }) => {
+  const [listItems, setListItems] = useState([]);
 
-  const currentViewItems = selectedList.items.filter((item) => {
-    switch (selectedList.view) {
+  // *** Issue and temp fix - part 2 of 2 ***
+  // - The fix contains 2 parts. The useEffect below is part 2 of 2. The first part is in List.js
+  // - See List.js comment for issue details.
+  useEffect(() => {
+    if (Object.keys(listInView).length === 0) {
+      return;
+    } else {
+      setListItems([...listInView.items]);
+    }
+  }, [listInView]);
+
+  const currentViewItems = listItems.filter((item) => {
+    switch (listInView.view) {
       case 'active':
         return item.isComplete !== true;
       case 'complete':
@@ -39,7 +49,7 @@ const ListView = ({ selectedList }) => {
     <StyledListView>
       {currentViewItems.length === 0 ? (
         <div>
-          <p>{renderNoItemsMessage(selectedList.view)}</p>
+          <p>{renderNoItemsMessage(listInView.view)}</p>
         </div>
       ) : (
         <>
@@ -59,10 +69,4 @@ const ListView = ({ selectedList }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    selectedList: state.selectedList,
-  };
-};
-
-export default connect(mapStateToProps)(ListView);
+export default ListView;
