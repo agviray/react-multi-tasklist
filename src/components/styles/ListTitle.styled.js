@@ -24,17 +24,20 @@ export const StyledListTitle = styled.div`
   }
 `;
 
-export const StyledTitleEditor = styled.input`
+export const StyledTitleEditor = styled.div`
   flex: 1;
+  display: inline-block;
   width: 90%;
-  height: 52px;
-  padding: 10px 12px;
-  font-size: 20px;
-  border: none;
-  outline: none;
+  box-shadow: ${({ isEditing }) =>
+    isEditing ? 'rgba(0, 0, 0, 0.35) 0px 5px 15px;' : 'none'};
 
-  &:focus {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  input {
+    width: 100%;
+    height: 52px;
+    padding: 10px 12px;
+    font-size: 20px;
+    border: none;
+    outline: none;
   }
 `;
 

@@ -40,7 +40,7 @@ const Home = ({
       setIsDeleteAllDisabled(true);
     } else {
       setMessageText(`Click the "Add List" button to create a new list, or select a list
-      below to view/edit it.`);
+      below edit it.`);
       setIsDeleteAllDisabled(false);
     }
 

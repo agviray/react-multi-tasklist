@@ -78,13 +78,15 @@ const ListItem = ({ itemId, task, isComplete, updateItem }) => {
   );
 
   const itemEditor = (
-    <StyledItemEditor
-      value={text}
-      onChange={(e) => handleItemChange(e)}
-      onBlur={(e) => handleItemTextareaBlur(e)}
-      onFocus={(e) => resizeEditor(e)}
-      autoFocus
-    />
+    <StyledItemEditor isEditing={isEditing}>
+      <textarea
+        value={text}
+        onChange={(e) => handleItemChange(e)}
+        onBlur={(e) => handleItemTextareaBlur(e)}
+        onFocus={(e) => resizeEditor(e)}
+        autoFocus
+      />
+    </StyledItemEditor>
   );
 
   return (

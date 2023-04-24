@@ -46,15 +46,17 @@ const ListTitle = ({ selectedList, updateTitle }) => {
   return (
     <StyledListTitle isValid={title !== '' ? true : false}>
       {isEditing ? (
-        <StyledTitleEditor
-          type="text"
-          value={title}
-          onChange={(e) => handleTitleChange(e)}
-          onBlur={(e) => handleTitleInputBlur(e)}
-          onFocus={(e) => e.target.select()}
-          onKeyPress={(e) => handleKeypressEnter(e)}
-          autoFocus
-        />
+        <StyledTitleEditor isEditing={isEditing}>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => handleTitleChange(e)}
+            onBlur={(e) => handleTitleInputBlur(e)}
+            onFocus={(e) => e.target.select()}
+            onKeyPress={(e) => handleKeypressEnter(e)}
+            autoFocus
+          />
+        </StyledTitleEditor>
       ) : (
         <h2 onClick={editTitle}>{title === '' ? defaultTitle : title}</h2>
       )}

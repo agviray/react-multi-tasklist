@@ -24,6 +24,7 @@ export const StyledListItem = styled.li`
 export const StyledItemDefault = styled.div`
   display: inline-block;
   width: 90%;
+  min-height: 41.59px;
   padding: 0.5rem 1rem;
   overflow-wrap: break-word;
   transition: all 0.3s ease;
@@ -58,17 +59,24 @@ export const StyledItemDefault = styled.div`
   }
 `;
 
-export const StyledItemEditor = styled.textarea`
+export const StyledItemEditor = styled.div`
+  display: inline-block;
   width: 90%;
-  padding: 10px 12px;
-  font-size: 15px;
-  border-style: none;
-  outline: none;
-  resize: none;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: ${({ isEditing }) =>
+    isEditing
+      ? 'rgba(0, 0, 0, 0.35) 0px 5px 15px'
+      : 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'};
+
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 16px;
+    border-style: none;
+    outline: none;
+    resize: none;
+  }
 
   &:focus {
     color: #333333;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 `;

@@ -6,6 +6,7 @@ import { StyledListItemAdder } from './styles/ListItemAdder.styled';
 const defaultText = 'Enter a task';
 
 const ListItemAdder = ({ addItem }) => {
+  const [doesInputHaveFocus, setDoesInputHaveFocus] = useState(false);
   const [text, setText] = useState(defaultText);
 
   const handleChange = (e) => {
@@ -23,12 +24,14 @@ const ListItemAdder = ({ addItem }) => {
     if (e.target.value === defaultText) {
       setText('');
     }
+    setDoesInputHaveFocus(true);
   };
 
   const handleBlur = (e) => {
     if (e.target.value === '') {
       setText(defaultText);
     }
+    setDoesInputHaveFocus(false);
   };
 
   const addTask = (taskToAdd) => {
@@ -40,15 +43,20 @@ const ListItemAdder = ({ addItem }) => {
   };
 
   return (
-    <StyledListItemAdder hasDefaultText={text === defaultText}>
-      <input
-        type="text"
-        value={text}
-        onChange={(e) => handleChange(e)}
-        onKeyPress={(e) => handleKeypressEnter(e)}
-        onFocus={(e) => handleFocus(e)}
-        onBlur={(e) => handleBlur(e)}
-      />
+    <StyledListItemAdder
+      hasDefaultText={text === defaultText}
+      doesInputHaveFocus={doesInputHaveFocus}
+    >
+      <span>
+        <input
+          type="text"
+          value={text}
+          onChange={(e) => handleChange(e)}
+          onKeyPress={(e) => handleKeypressEnter(e)}
+          onFocus={(e) => handleFocus(e)}
+          onBlur={(e) => handleBlur(e)}
+        />
+      </span>
       <span onClick={() => addTask(text)}>
         <span>Add</span>
       </span>
