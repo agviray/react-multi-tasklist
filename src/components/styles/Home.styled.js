@@ -27,22 +27,22 @@ export const StyledHome = styled.div`
         border-radius: 5px;
 
         &:nth-of-type(1) {
-          background-color: #7cb4f0;
+          background-color: #7b6cf6;
           color: #fefefe;
 
           &:hover {
             cursor: pointer;
-            background-color: #3a70a9;
+            background-color: #493f96;
           }
         }
 
         &:nth-of-type(2) {
-          background-color: #f54957;
+          background-color: #ff6464;
           color: #fefefe;
 
           &:hover {
             cursor: pointer;
-            background-color: #ca3a46;
+            background-color: #b64646;
           }
 
           &.disabled {

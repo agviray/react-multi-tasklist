@@ -21,7 +21,14 @@ export const StyledHeaderContent = styled.div`
   }
 
   h1 {
+    color: white;
     text-align: center;
     font-size: 30px;
+    font-family: 'Metropolis Regular', serif;
+    letter-spacing: 2px;
+
+    @media screen and (min-width: 700px) {
+      font-size: 50px;
+    }
   }
 `;

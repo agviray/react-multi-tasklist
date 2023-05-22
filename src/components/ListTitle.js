@@ -62,7 +62,7 @@ const ListTitle = ({ selectedList, updateTitle }) => {
       )}
       <IconContainer>
         <span onClick={editTitle}>
-          <EditIcon iconColor={isEditing ? '#3a70a9' : '#7cb4f0'} />
+          <EditIcon iconColor={isEditing ? '#493f96' : '#7b6cf6'} />
         </span>
       </IconContainer>
     </StyledListTitle>

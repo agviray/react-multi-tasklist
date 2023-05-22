@@ -6,18 +6,17 @@ const GlobalStyles = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Metropolis Regular", Arial, Helvetica, sans-serif;
 }
 
 html {
   min-height: 100vh;
-  background: rgb(215,225,236);
-  background: linear-gradient(24deg, rgba(215,225,236,1) 0%, rgba(255,255,255,1) 61%);
+  background: rgb(250,250,250);
+  background: linear-gradient(90deg, rgba(250,250,250,1) 0%, rgba(247,247,247,1) 52%, rgba(236,236,236,1) 100%);
 }
 
 body {
   min-width: 300px;
-  max-width: 1300px;
   margin: 0 auto;
   color: #333333;
   font-size: 16px;
@@ -28,16 +27,11 @@ header {
   position: sticky;
   top: 0;
   left: 0;
-  max-width: 1300px;
   margin: 0 auto;
-  background: rgba(215, 225, 236, 0.8);
-  backdrop-filter: blur(5px);
+  /* background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px); */background: radial-gradient(100% 225% at 100% 0%, #FAFF00 0%, #000000 100%), linear-gradient(235deg, #DB00FF 0%, #000000 100%), linear-gradient(45deg, #241E92 0%, #241E92 40%, #5432D3 40%, #5432D3 50%, #7B6CF6 50%, #7B6CF6 70%, #E5A5FF 70%, #E5A5FF 100%), linear-gradient(180deg, #01024E 0%, #01024E 43%, #543864 43%, #543864 62%, #8B4367 62%, #8B4367 80%, #FF6464 80%, #FF6464 100%);
+background-blend-mode: overlay, hard-light, overlay, normal;
   z-index: 10;
-  
-  @media screen and (min-width: 1200px) {
-    top: 16px;
-    border-radius: 15px;
-    }
 }
 
 ul {

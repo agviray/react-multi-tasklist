@@ -6,14 +6,14 @@ export const StyledListButton = styled.div`
   min-width: 80.57px;
   text-align: center;
   color: #fefefe;
-  background-color: #7cb4f0;
-  border: solid 1px #7cb4f0;
+  background-color: #5432d3;
+  border: solid 1px #fefefe;
   border-radius: 5px;
 
   &:hover {
     cursor: pointer;
-    background-color: #3a70a9;
-    border: solid 1px #3a70a9;
+    background-color: #493f96;
+    border: solid 1px #493f96;
   }
 
   &.disabled {

@@ -4,7 +4,8 @@ export const StyledBackButton = styled.span`
   position: relative;
   display: inline-block;
   padding: 0.5rem 1rem;
-  border: 1px solid #333333;
+  color: white;
+  border: 1px solid white;
   border-radius: 5px;
 
   &::before {
@@ -16,7 +17,7 @@ export const StyledBackButton = styled.span`
     width: 7px;
     height: 7px;
     margin-right: 2px;
-    border: solid #333333;
+    border: solid white;
     border-width: 0 0 2px 2px;
     -webkit-transform: rotate(45deg) scale(1);
     -ms-transform: rotate(45deg) scale(1);
@@ -25,11 +26,11 @@ export const StyledBackButton = styled.span`
 
   &:hover {
     cursor: pointer;
-    color: white;
-    background-color: black;
+    color: #333333;
+    background-color: white;
 
     &:before {
-      border: solid white;
+      border: solid #333333;
       border-width: 0 0 2px 2px;
     }
   }

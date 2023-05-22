@@ -3,12 +3,14 @@ import { Outlet } from 'react-router-dom';
 import HeaderContent from './HeaderContent';
 import Modal from './Modal';
 import GlobalStyles from './styles/GlobalStyles';
+import GlobalFonts from './styles/GlobalFonts';
 import { StyledMainContent } from './styles/Layout.styled';
 
 const Layout = () => {
   return (
     <>
       <GlobalStyles />
+      <GlobalFonts />
       <header>
         <HeaderContent />
       </header>

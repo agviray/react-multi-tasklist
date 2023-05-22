@@ -98,7 +98,7 @@ const ListItem = ({ itemId, task, isComplete, updateItem }) => {
           className={'iconContainer'}
           onClick={() => handleIconClick()}
         >
-          <ItemMenuIcon iconColor={isMenuActive ? '#3a70a9' : '#7cb4f0'} />
+          <ItemMenuIcon iconColor={isMenuActive ? '#493f96' : '#7b6cf6'} />
         </div>
         <ListItemMenu
           itemId={itemId}

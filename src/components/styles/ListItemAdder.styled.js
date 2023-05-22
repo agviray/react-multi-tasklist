@@ -36,10 +36,11 @@ export const StyledListItemAdder = styled.div`
       display: inline-flex;
       align-items: center;
       color: white;
-      background-color: #7cb4f0;
+      background-color: #7b6cf6;
 
       &:hover {
         cursor: pointer;
+        background-color: #493f96;
       }
 
       span {

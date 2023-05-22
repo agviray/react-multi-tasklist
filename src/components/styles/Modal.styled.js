@@ -9,7 +9,7 @@ export const StyledModal = styled.div`
   width: 100%;
   height: 100%;
   color: #333333;
-  background-color: rgba(51, 51, 51, 0.95);
+  background-color: rgba(180, 180, 180, 0.95);
   z-index: 11;
 
   & > div {
@@ -31,9 +31,14 @@ export const StyledMessageBox = styled.div`
   & > div {
     padding: 1.5rem;
 
+    p {
+      padding: 1.5rem 0;
+    }
+
     &:nth-of-type(1),
     &:nth-of-type(3) {
-      background-color: #d7e1ec;
+      color: white;
+      background-color: #0e0c3d;
     }
 
     &:nth-of-type(1) {
@@ -68,19 +73,19 @@ export const StyledButtonContainer = styled.div`
 
     &.save {
       color: #fefefe;
-      background-color: #7cb4f0;
+      background-color: #7b6cf6;
 
       &:hover {
-        background-color: #3a70a9;
+        background-color: #493f96;
       }
     }
 
     &.caution {
       color: #fefefe;
-      background-color: #f54957;
+      background-color: #ff6464;
 
       &:hover {
-        background-color: #ca3a46;
+        background-color: #b64646;
       }
     }
 

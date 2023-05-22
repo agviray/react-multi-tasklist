@@ -40,7 +40,7 @@ const HeaderContent = () => {
   return (
     <StyledHeaderContent isTransitionApplied={isTransitionApplied}>
       {location.pathname === '/' ? (
-        <h1>Multi-Tasklist</h1>
+        <h1>MULTI-TASKLIST</h1>
       ) : (
         <ListPageHeaderContent />
       )}
