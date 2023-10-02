@@ -6,6 +6,11 @@
 
 Play around with the app [here](https://multi-tasklist.netlify.app), or enter <em>https://multi-tasklist.netlify.app</em> in your browser's address bar.
 
+![Browse-A-Vid UI](./src/images/multi-tasklist.png)
+
+| ![Browse-A-Vid UI](./src/images/editing.png) | ![Browse-A-Vid UI](./src/images/mark-complete.png) |
+| :------------------------------------------: | :------------------------------------------------: |
+
 Follow the Installation and Instructions steps to clone the repo and run the app locally.
 
 ## Built with
